@@ -8,7 +8,8 @@
 	header("Content-type:text/html; charset=utf-8");
 	include "include/dbconn.php";
 	include "include/common.inc.php";
-	
+
+
 	$nickname = $_SESSION['nickname'];
 	$f_nickname = $_GET['f_nickname'];
 	
