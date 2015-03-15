@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(empty($_SESSION['password'])){
-		echo "<a href='login.php'>登陆</a> <a href='regist.php' target='_blank'>注册</a>";
+		echo "<a href='login.php'>Se connecter</a> <a href='regist.php' target='_blank'>Créer un compte</a>";
 		exit();
 	}
 	header("Content-type:text/html; charset=utf-8");
@@ -17,7 +17,7 @@
 	$sql = "select id from user where nickname='{$f_nickname}';";
 	$res = mysql_query($sql,$link);
 	if(mysql_num_rows($res)<1){
-		echo "<script type='text/javascript'> alert('不存在该用户'); location.href='addfriend.php'; </script>";
+		echo "<script type='text/javascript'> alert('Cet utilisateur n\\'existe pas'); location.href='addfriend.php'; </script>";
 		exit();
 	}
 	
@@ -25,14 +25,14 @@
 	$sql = "select nickname from friend where f_nickname='{$f_nickname}' and nickname='{$nickname}';";
 	$res = mysql_query($sql,$link);
 	if(mysql_num_rows($res)>0){
-		echo "<script type='text/javascript'> alert('您已经添加了该好友'); location.href='addfriend.php'; </script>";
+		echo "<script type='text/javascript'> alert('Vous avez déjà ajouté cet utilisateur'); location.href='addfriend.php'; </script>";
 		exit();
 	}
 	
 	$sql = "insert friend (nickname,f_nickname) values ('{$nickname}','{$f_nickname}');";
 	$res = mysql_query($sql,$link);
 	if($res){
-		echo "<script type='text/javascript'> alert('好友请求发送成功，请等待对方确认'); location.href='addfriend.php'; </script>";
+		echo "<script type='text/javascript'> alert('Ami requête est envoyée avec succès, attendez la confirmation'); location.href='addfriend.php'; </script>";
 	}
 
 ?>

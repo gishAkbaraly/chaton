@@ -30,9 +30,9 @@
 		$res = mysql_query($sql,$link);
 		$fnum = mysql_num_rows($res);
 		if($fnum>0){
-			echo "<span ><a href='qingqiu.php' style='color:#c00'>&nbsp;您有(".$fnum.")条好友请求</span></a> 在线 <a href='exit.php'>退出登陆</a>";
+			echo "<span ><a href='qingqiu.php' style='color:#c00'>&nbsp;Vous avez(".$fnum.") invitations</span></a> en ligne <a href='exit.php'>Déconnexion</a>";
 		}else{
-			echo " 在线 <a href='exit.php'>退出登陆</a>";
+			echo " en ligne <a href='exit.php'>Déconnexion</a>";
 		}
 		mysql_free_result($res);	
 	}
@@ -40,14 +40,14 @@
 <div id="message">
 				
 	<hr />
-	<p><span style="font-weight:bold">好友列表</span>&nbsp;|&nbsp;<a href="addfriend.php">添加好友</a></p>
+	<p><span style="font-weight:bold">Tous les amis</span>&nbsp;|&nbsp;<a href="addfriend.php">Ajouter des amis</a></p>
 	<ul id="flist">
 	<?php
 		$sql = "select f_nickname from friend where nickname='{$nickname}' and fzt='1';"; 
 		//echo $sql;exit();
 		$res = mysql_query($sql,$link);
 		if(mysql_num_rows($res)<1){
-			echo "您还没有好友！<a href='addfriend.php'>添加好友</a>";
+			echo "Vous ne avez pas d'amis!<a href='addfriend.php'>Ajouter des amis</a>";
 			exit();
 		}
 		echo "<table>";
@@ -60,12 +60,12 @@
 			//echo $sql1;
 			echo "<td><li title='".$f_nickname."'>".$f_nickname;
 			if(mysql_num_rows($res1)>0){
-				echo "<span style='color:red'>(有新消息)</span></li></td>";
+				echo "<span style='color:red'>(nouveau message)</span></li></td>";
 				
 			}else{
 				echo "</li></td>";
 			}
-			echo "<td>&nbsp;&nbsp;<a href='delfriend.php?f_nickname=".$f_nickname."' onclick='return del_confirm()'>删除</a></td>";
+			echo "<td>&nbsp;&nbsp;<a href='delfriend.php?f_nickname=".$f_nickname."' onclick='return del_confirm()'>supprimer</a></td>";
 			echo "</tr>";
 		}
 		mysql_free_result($res);

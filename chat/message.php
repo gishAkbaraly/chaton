@@ -18,7 +18,7 @@
 	//定义全局变量 http_request
 	var http_request;
 	
-	//**********************发送消息******************
+	//********************** Envoyer des messages ******************
 	$(function(){
 		$("#sendmess").click(sendMessage);
 	});
@@ -36,7 +36,7 @@
 			http_request.setRequestHeader("content-type","application/x-www-form-urlencoded");
 			http_request.onreadystatechange = function(){
 				if(http_request.readyState==4){
-					//等于200表示成功
+					//200 ca veut dire ca marche
 					if(http_request.status==200){
 						var res = http_request.responseText;
 						if(res!=""){
@@ -56,7 +56,7 @@
 		}
 	}
 	
-	//**********************接收消息**************
+	//********************** Recevoir des messages **************
 	setInterval(getMessage,1000); //每1秒发送一次请求
 	function getMessage(){
 		var http_request = createAjaxObject();
@@ -104,21 +104,21 @@
 <?php
 
 	if(empty($_SESSION['password'])){
-		echo "<a href='login.php'>登陆</a> <a href='regist.php' target='_blank'>注册</a>";
+		echo "<a href='login.php'>Se connecter</a> <a href='regist.php' target='_blank'>Créer un compte</a>";
 		exit();
 	}else{
-		echo $nickname. " 在线 <a href='exit.php'>退出登陆</a>";
+		echo $nickname. " En ligne <a href='exit.php'>Déconnexion</a>";
 	}
 ?>
 <div id="message">
 	<hr />
-	<p>与<font color='red'> <?php echo $geter; ?> </font>聊天中</p>
+	<p>et<font color='red'> <?php echo $geter; ?> </font>est en train de communiquer</p>
 	<hr />
 	<textarea readonly="readonly" id="messageBox"></textarea>
 </div>
 <div id="message2">
 	<textarea name="content" id="sendBox"></textarea>
-	<p><input type="button" value="发送" id="sendmess" /></p>
+	<p><input type="button" value="Envoyer" id="sendmess" /></p>
 </div>
 </body>
 </html>

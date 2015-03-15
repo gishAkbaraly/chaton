@@ -23,9 +23,9 @@
 		$res = mysql_query($sql,$link);
 		$fnum = mysql_num_rows($res);
 		if($fnum>0){
-			echo "<span ><a href='qingqiu.php' style='color:#c00'>&nbsp;您有(".$fnum.")条好友请求</span></a> 在线 <a href='exit.php'>退出登陆</a>";
+			echo "<span ><a href='qingqiu.php' style='color:#c00'>&nbsp;Vous avez(".$fnum.")invitations</span></a> En ligne <a href='exit.php'>Déconnexion</a>";
 		}else{
-			echo " 在线 <a href='exit.php'>退出登陆</a>";
+			echo " En ligne <a href='exit.php'>Déconnexion</a>";
 		}
 		mysql_free_result($res);	
 	}
@@ -33,18 +33,18 @@
 <div id="message">
 				
 	<hr />
-	<p><span style="font-weight:bold">好友请求</span></p>
+	<p><span style="font-weight:bold">invitations</span></p>
 	<?php
 		$sql = "select id,nickname,f_nickname from friend where f_nickname='{$nickname}' and fzt='0';";
 		$res = mysql_query($sql,$link);
 		if(mysql_num_rows($res)<1){
-			echo "没有好友请求";
+			echo "Il n'y a pas d'invitation.";
 			exit();
 		}
 		while($row = mysql_fetch_array($res)){
 			echo "<p style='float:left;margin-left:30px;'><span style='color:#00a;font-weight:bold;'>";
-			echo $row['nickname']."</span> 请求加为好友&nbsp;<a href='agreeqingqiu.php?f_nickname=";
-			echo $row['nickname']."&id=".$row['id']."'>同意并添加</a>&nbsp;<a href='refuseqingqiu.php?id=".$row['id']."'>拒绝</a></p>";
+			echo $row['nickname']."</span> a envoyé invitation à vous&nbsp;<a href='agreeqingqiu.php?f_nickname=";
+			echo $row['nickname']."&id=".$row['id']."'>Confirmer</a>&nbsp;<a href='refuseqingqiu.php?id=".$row['id']."'>Refuser</a></p>";
 		}
 		mysql_free_result($res);
 	?>

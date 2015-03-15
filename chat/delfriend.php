@@ -9,7 +9,7 @@
 	$f_nickname = $_GET['f_nickname'];
 	$sql = "delete from friend where nickname='".$_SESSION['nickname']."' and f_nickname='{$f_nickname}'";
 	if(mysql_query($sql,$link)){
-		echo "<script type='text/javascript'> alert('删除成功'); location.href='index.php'; </script>";	}
+		echo "<script type='text/javascript'> alert('supprimé avec succès'); location.href='index.php'; </script>";	}
 	
 
 ?>

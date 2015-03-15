@@ -1,12 +1,21 @@
 <?php
-
+/* cette facon marche pas
 	include "config/dbconfig.php";
 
-	$mysqli = new mysqli($DBHOST, $DBUSER, $DBPASSWORD, $DBNAME);
+	$link = new mysqli($DBHOST, $DBUSER, $DBPASSWORD, $DBNAME);
 
-	if ($mysqli->connect_errno)
+	if ($link->connect_errno)
 	{
-		die("Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
+		die("Echec lors de la connexion à MySQL : (" . $link->connect_errno . ") " . $link->connect_error);
 	}
 	mysql_query("set names utf8");
+*/
+
+//
+include "config/dbconfig.php";
+
+$link = mysql_connect($DBHOST,$DBUSER,$DBPASSWORD);
+mysql_select_db($DBNAME);
+mysql_query("set names utf8");
+
 ?>

@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(empty($_SESSION['password'])){
-		echo "<a href='login.php'>登陆</a> <a href='regist.php' target='_blank'>注册</a>";
+		echo "<a href='login.php'>Se connecter</a> <a href='regist.php' target='_blank'>Créer un compte</a>";
 		exit();
 	}
 	header("Content-type:text/html; charset=utf-8");
@@ -24,7 +24,7 @@
 		
 	}
 	if($res){
-			echo "<script type='text/javascript'> alert('操作成功'); location.href='qingqiu.php'; </script>";
+			echo "<script type='text/javascript'> alert('opération réussie'); location.href='qingqiu.php'; </script>";
 			exit();
 		}
 

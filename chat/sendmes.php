@@ -13,7 +13,7 @@
 	//file_put_contents("log.txt",$sql."\r\n",FILE_APPEND);
 	$res = mysql_query($sql,$link);
 	if(!$res){
-		echo ""; //发送失败
+		echo ""; //Échec de l'envoi
 	}else{
 		date_default_timezone_set("PRC");
 		echo date("H:i:s");

@@ -4,7 +4,7 @@
 
 	$DBUSER = "root";
 
-	$DBPASSWORD = "Gishou";
+	$DBPASSWORD = "root";
 
 	$DBNAME = "webchat";
 

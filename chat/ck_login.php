@@ -10,7 +10,7 @@
 	$sql = "select id from user where nickname='{$nickname}' and password='{$password}';";
 	$res = mysql_query($sql,$link);
 	if(mysql_num_rows($res)<1){
-		echo "<script type='text/javascript'> alert('用户名或密码错误！'); history.back();</script>";
+		echo "<script type='text/javascript'> alert('Nom ou mot de passe est incorrect!'); history.back();</script>";
 		exit();
 	}else{
 		$_SESSION['nickname'] = $nickname;
