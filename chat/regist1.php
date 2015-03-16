@@ -13,17 +13,7 @@
 	}else{
 		echo "<script type='text/javascript'> alert('Error : Confirmer le mot de passe'); history.back();</script>";
 	}
-	$sex = $_POST['sex'];
-
-	$yyyy = $_POST['yyyy'];
-	$mm = $_POST['mm'];
-	$dd = $_POST['dd'];
-	$birthday = $yyyy."-".$mm."-".$dd;
-	$address = $_POST['address'];
-	$question = $_POST['question'];
-	$answer = $_POST['answer'];
-
-	$age = intval(date("Y"))-intval($yyyy);
+	$CouV = $_POST['CouV'];
 
 	$sql = "select * from user where nickname='".$nickname."';";
 	$res = mysql_query($sql,$link);
@@ -33,7 +23,7 @@
 		echo "<script type='text/javascript'> alert('Le nom d\\'utilisateur est déjà enregistré'); history.back();</script>";
 	}
 
-	$sql = "insert into user (nickname,password,address,sex,age,birthday,reg_time,question,answer) values ('{$nickname}','{$password}','{$address}','{$sex}','{$age}','{$birthday}',now(),'{$question}','{$answer}');";
+	$sql = "insert into user (nickname,password,CouV) values ('{$nickname}','{$password}','{$CouV}');";
 
 	//echo $sql;
 	$res = mysql_query($sql,$link);
