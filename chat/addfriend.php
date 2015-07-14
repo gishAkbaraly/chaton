@@ -18,7 +18,8 @@ ID：<input type="text" name="f_nickname" />
 
 	include "include/dbconn.php";
 	//TODO sql marche plus parce que y a pas de reg_time
-	$sql = "select nickname from user order by reg_time desc limit 0,10;";
+	//$sql = "select nickname from user order by reg_time desc limit 0,10;";
+	$sql = "select nickname from user;";//just for a test
 	$res = mysql_query($sql,$link);
 	
 	while($row = mysql_fetch_array($res)){
